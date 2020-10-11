@@ -35,7 +35,7 @@ export class CategoryServiceService {
   }
 
   updateProduct(body, id) { 
-    const url = `http://localhost:8081/api/category/update?id=${id}`;
+    const url = `http://localhost:8081/api/product/update?id=${id}`;
     return this._http.post(url, body);
   }
 

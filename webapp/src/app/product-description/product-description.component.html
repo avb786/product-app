@@ -1,0 +1,48 @@
+<div class="col-md-10 mx-auto">
+    <h1>Product Details</h1>
+    <div>
+        <div class="form-group">
+            <label>Product name: </label>
+            <input class="form-control" type="text" id="productname" name="product" [(ngModel)]="productname"
+                placeholder="product name">
+        </div>
+        <div class="form-group">
+            <label>Product Description: </label>
+            <textarea class="form-control" id="productdescription" name="description" [(ngModel)]="productdescription"
+                placeholder="product description"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Select catagory :</label>
+            <select class="form-control" [(ngModel)]="selectedCatagory">
+                <option value="select catagory" disabled>select catagory</option>
+                <option *ngFor="let category of categoryList" [ngValue]="category">{{category}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button *ngIf="createBtn" class="form-control btn btn-primary" type="button" (click)="createProduct()">Create product</button>
+            <button *ngIf="updateBtn" class="form-control btn btn-warning" type="button" (click)="updateProduct()">Update product</button>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th>No.</th>
+                <th>Product name</th>
+                <th>Product description</th>
+                <th>Category</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            <tr *ngFor = "let list of productList; let i = index">
+                <td>{{i + 1}}</td>
+                <td>{{list.name}}</td>
+                <td>{{list.description}}</td>
+                <td>{{list.category}}</td>
+                <td style="cursor: pointer;"><i class="fa fa-pencil text-primary"
+                        aria-hidden="true" (click)="editProduct(list)"></i></td>
+                <td style="cursor: pointer;"><i class="fa fa-trash text-danger"
+                        aria-hidden="true" (click)="deleteProduct(list.id)"></i></td>
+            </tr>
+        </table>
+
+    </div>
+</div>

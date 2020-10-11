@@ -1,23 +1,25 @@
-<div>
+<div class="col-md-10 mx-auto">
     <div *ngIf="createFlag" class="form-group">
    Create: <input type="text" class="form-control" id="insertCatagory" name="catagory" [(ngModel)]="insertCatagory" >
-    <button class="btn btn-primary" type="button" (click)="createCatagory()">Create Catagory</button>
+    <button class="btn btn-sm mt-2 btn-block btn-primary" type="button" (click)="createCatagory()">Create Catagory</button>
 </div>
 <div *ngIf="updateFlag" class="form-group">
+    <button type="button" class="btn btn-secondary" (click)="goTocreateCatagory()"> << Back to Create Catagory</button><br><br>
     Update: <input type="text" class="form-control" id="insertCatagory" name="catagory" [(ngModel)]="updateCategory" >
-    <button type="button" class="btn btn-warning" (click)="updateCatagory()">Update Catagory</button> <br>
-    <button type="button" class="btn btn-secondary" (click)="goTocreateCatagory()"> << Back to Create Catagory</button>
+    <button type="button" class="btn btn-sm mt-2 btn-block btn-warning text-white" (click)="updateCatagory()">Update Catagory</button> <br>
 </div>
-<table border="1">
+<table class="table">
     <tr>
+    <th>No.</th>
     <th>catagory name</th>
     <th>Update</th>
     <th>Delete</th>
     </tr>
-    <tr *ngFor="let list of catagoryList">
+    <tr *ngFor="let list of catagoryList; let i = index">
+        <td>{{i + 1}}</td>
         <td>{{list.name}}</td>
-        <td  (click)="editCatagory(list)"><i class="fa fa-pencil text-primary" aria-hidden="true"></i></td>
-        <td  (click)="deleteCatagory(list)"><i class="fa fa-trash text-danger" aria-hidden="true"></i></td>
+        <td style="cursor: pointer;"  (click)="editCatagory(list)"><i class="fa fa-pencil text-primary" aria-hidden="true"></i></td>
+        <td style="cursor: pointer;"   (click)="deleteCatagory(list)"><i class="fa fa-trash text-danger" aria-hidden="true"></i></td>
     </tr>
 </table>
 </div>

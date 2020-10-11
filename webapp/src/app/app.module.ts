@@ -7,11 +7,15 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CategoryDetailsComponent
+    CategoryDetailsComponent,
+    ProductDescriptionComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
