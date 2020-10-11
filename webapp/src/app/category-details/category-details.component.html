@@ -1,1 +1,23 @@
-<p>category-details works!</p>
+<div>
+    <div *ngIf="createFlag" class="form-group">
+   Create: <input type="text" class="form-control" id="insertCatagory" name="catagory" [(ngModel)]="insertCatagory" >
+    <button class="btn btn-primary" type="button" (click)="createCatagory()">Create Catagory</button>
+</div>
+<div *ngIf="updateFlag" class="form-group">
+    Update: <input type="text" class="form-control" id="insertCatagory" name="catagory" [(ngModel)]="updateCategory" >
+    <button type="button" class="btn btn-warning" (click)="updateCatagory()">Update Catagory</button> <br>
+    <button type="button" class="btn btn-secondary" (click)="goTocreateCatagory()"> << Back to Create Catagory</button>
+</div>
+<table border="1">
+    <tr>
+    <th>catagory name</th>
+    <th>Update</th>
+    <th>Delete</th>
+    </tr>
+    <tr *ngFor="let list of catagoryList">
+        <td>{{list.name}}</td>
+        <td  (click)="editCatagory(list)"><i class="fa fa-pencil text-primary" aria-hidden="true"></i></td>
+        <td  (click)="deleteCatagory(list)"><i class="fa fa-trash text-danger" aria-hidden="true"></i></td>
+    </tr>
+</table>
+</div>
